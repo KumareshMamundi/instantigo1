@@ -1,0 +1,38 @@
+
+<div class="container">
+	<mat-card>  
+	  <form (submit)="createUser(datas)" #datas="ngForm">
+	  	<br>
+	  	<div>
+	  		<mat-form-field>
+		      <input matInput type="text" placeholder="First name" name="firstName" ngModel required>
+		    </mat-form-field>
+	  		&nbsp;&nbsp;
+	    	<mat-form-field>
+		      <input matInput type="text"  placeholder="Last name"  name="lastName" ngModel required>      
+		    </mat-form-field>
+		    &nbsp;&nbsp;
+	    	<mat-form-field>
+		      <input matInput type="email"  placeholder="Email" name="email" ngModel required>      
+		    </mat-form-field>
+		    &nbsp;&nbsp;
+	    	<mat-form-field>
+		      <input matInput type="password"  placeholder="Password" name="password" ngModel required>      
+		    </mat-form-field>
+		    &nbsp;&nbsp;
+	    	<mat-form-field>
+		      <input matInput type="number"  placeholder="Mobile No" name="mobileNo" ngModel required>      
+		    </mat-form-field>
+		    &nbsp;&nbsp;
+	    	<mat-form-field>
+		      <textarea matInput type="textarea"  placeholder="Address" name="address" ngModel required></textarea>     
+		    </mat-form-field>
+	    </div>
+	    <br>
+	    <button mat-raised-button color="accent" type="submit" >SignUp</button>
+	    &nbsp;&nbsp; Have an account?<a routerLink="/login">&nbsp;Login</a>
+	  </form>
+	</mat-card>
+
+
+</div>

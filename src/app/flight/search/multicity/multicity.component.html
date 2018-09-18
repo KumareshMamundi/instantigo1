@@ -1,0 +1,2131 @@
+
+<div class="container">	 
+	<div>
+	<mat-card>
+		<form (submit)="searchingDetails(datas)" #datas="ngForm">	
+	  <br>  	
+	  		<div class="addfield">
+	  			<div>
+	  				&nbsp;&nbsp;&nbsp;&nbsp;
+			  		<mat-form-field >
+				      <input matInput type="text"  placeholder="From" name="from" ngModel required>      
+				    </mat-form-field>
+				    &nbsp;&nbsp;&nbsp;&nbsp;
+			    	<mat-form-field>
+				      <input matInput type="text"  placeholder="To" name="to" ngModel required>      
+				    </mat-form-field>  
+				    &nbsp;&nbsp;&nbsp;&nbsp;
+				    <i class="material-icons">
+					flight_takeoff
+					</i>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<mat-form-field>
+				      <input matInput type="date"  placeholder="Depart" name="date" ngModel  required>      
+				    </mat-form-field> 
+				    &nbsp;&nbsp;&nbsp;&nbsp;
+				    <button mat-raised-button  type="button"  (click)="onclickevent()">Add city</button>
+				   	<br>
+				   	<div *ngIf="num>=1">
+				   		&nbsp;&nbsp;&nbsp;&nbsp;
+				  		<mat-form-field >
+					      <input matInput type="text"  placeholder="From" name="from1" ngModel required>      
+					    </mat-form-field>
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+				    	<mat-form-field>
+					      <input matInput type="text"  placeholder="To" name="to1" ngModel required>      
+					    </mat-form-field>  
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+					    <i class="material-icons">
+						flight_takeoff
+						</i>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<mat-form-field>
+					      <input matInput type="date"  placeholder="Depart" name="date1" ngModel required>      
+					    </mat-form-field> 
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+					    <span style="cursor: pointer;" class="remove_field"><i class="material-icons" (click)="deleteEvent()">delete_sweep</i></span>
+				   	</div>
+				   		<br>
+				   	<div *ngIf="num>=2">
+				   		&nbsp;&nbsp;&nbsp;&nbsp;
+				  		<mat-form-field >
+					      <input matInput type="text"  placeholder="From" name="from2" ngModel required>      
+					    </mat-form-field>
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+				    	<mat-form-field>
+					      <input matInput type="text"  placeholder="To" name="to2" ngModel required>      
+					    </mat-form-field>  
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+					    <i class="material-icons">
+						flight_takeoff
+						</i>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<mat-form-field>
+					      <input matInput type="date"  placeholder="Depart" name="date2" ngModel required>      
+					    </mat-form-field> 
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+					    <span style="cursor: pointer;" class="remove_field"><i class="material-icons" (click)="deleteEvent()">delete_sweep</i></span>
+				   	</div>
+				   		<br>
+				   	<div *ngIf="num>=3">
+				   		&nbsp;&nbsp;&nbsp;&nbsp;
+				  		<mat-form-field >
+					      <input matInput type="text"  placeholder="From" name="from3" ngModel required>      
+					    </mat-form-field>
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+				    	<mat-form-field>
+					      <input matInput type="text"  placeholder="To" name="to3" ngModel required>      
+					    </mat-form-field>  
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+					    <i class="material-icons">
+						flight_takeoff
+						</i>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<mat-form-field>
+					      <input matInput type="date"  placeholder="Depart" name="date3" ngModel required>      
+					    </mat-form-field> 
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+					    <span style="cursor: pointer;" class="remove_field"><i class="material-icons" (click)="deleteEvent()">delete_sweep</i></span>
+				   	</div>
+				   		<br>
+				   	<div *ngIf="num>=4">
+				   		&nbsp;&nbsp;&nbsp;&nbsp;
+				  		<mat-form-field >
+					      <input matInput type="text"  placeholder="From" name="from4" ngModel required>      
+					    </mat-form-field>
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+				    	<mat-form-field>
+					      <input matInput type="text"  placeholder="To" name="to4" ngModel required>      
+					    </mat-form-field>  
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+					    <i class="material-icons">
+						flight_takeoff
+						</i>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<mat-form-field>
+					      <input matInput type="date"  placeholder="Depart" name="date4" ngModel required>      
+					    </mat-form-field> 
+					    &nbsp;&nbsp;&nbsp;&nbsp;
+					    <span style="cursor: pointer;" class="remove_field"><i class="material-icons" (click)="deleteEvent()">delete_sweep</i></span>
+				   	</div>
+	  			</div>
+	  			
+	  			 
+	  		</div>
+	  		
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+			<mat-form-field>
+		      <input matInput type="number"  placeholder="Adults" name="adult" ngModel required>      
+		    </mat-form-field> 
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+			<mat-form-field>
+		      <input matInput type="number"  placeholder="Children" name="children" ngModel required>      
+		    </mat-form-field> 
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+			<mat-form-field>
+		      <input matInput type="number"  placeholder="Infants" name="infants" ngModel required>      
+		    </mat-form-field> <br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+			<mat-form-field>
+			  <mat-select placeholder="Class" name="class" ngModel required>
+			    <mat-option *ngFor="let class of classes" [value]="class.value">
+			      {{class.value}}
+			    </mat-option>
+			  </mat-select>
+			</mat-form-field>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<button mat-raised-button color="accent" type="submit">Search</button>
+			<br><br>
+		
+	</form>
+	</mat-card>
+	</div>
+	<br><br>
+
+<div *ngIf="num==1">
+		<mat-card >
+			<div class="col-sm-2">
+				FlightName
+			</div>
+			<div class="col-sm-2">
+				Departure
+			</div>
+			<div class="col-sm-2">
+				Arrival
+			</div >
+			<div class="col-sm-2">
+				Duration
+			</div >	
+			
+			<div class="col-sm-2" >
+				Price
+			</div>	
+			<br>
+		</mat-card>
+		<div *ngFor="let bookflight1 of books">
+			<div *ngFor="let bookflight2 of books1">
+			  <mat-card>
+			  <mat-card>
+			  	<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Red Airways'">
+						<img src="assets/img/red1.png" class="im">
+					</div>
+					<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Green Airways'">
+						<img src="assets/img/green.png" class="im">
+					</div>
+					<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Blue Airways'">
+						<img src="assets/img/blue.png" class="im">
+					</div>
+				<div class="col-sm-2">
+					
+					
+					{{bookflight1.flightName}}
+				</div>
+				<div class="col-sm-2">
+				{{bookflight1.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{bookflight1.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{bookflight1.duration}}
+			</div >	
+			
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[0].classType">
+					{{bookflight1.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[1].classType">
+					
+					{{bookflight1.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[2].classType">
+					{{bookflight1.class[2].price}}
+				</div><br>
+			
+			  </mat-card>
+
+			  <br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight2.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight2.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight2.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight2.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[0].classType">
+						{{bookflight2.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[1].classType">
+						
+						{{bookflight2.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[2].classType">
+						{{bookflight2.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+			</mat-card><br><br>
+			</div>
+		</div>
+	
+		
+	<div class="col-sm-6">
+		<div  *ngFor="let book of books">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div  *ngFor="let book of books1">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	
+</div>
+
+<div *ngIf="num==2">
+	
+		<div *ngFor="let bookflight1 of books">
+			<div *ngFor="let bookflight2 of books1">
+			<div *ngFor="let bookflight3 of books2">
+			  <mat-card>
+			  <mat-card>
+			  	<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Red Airways'">
+						<img src="assets/img/red1.png" class="im">
+					</div>
+					<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Green Airways'">
+						<img src="assets/img/green.png" class="im">
+					</div>
+					<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Blue Airways'">
+						<img src="assets/img/blue.png" class="im">
+					</div>
+				<div class="col-sm-2">
+					
+					
+					{{bookflight1.flightName}}
+				</div>
+				<div class="col-sm-2">
+				{{bookflight1.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{bookflight1.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{bookflight1.duration}}
+			</div >	
+			
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[0].classType">
+					{{bookflight1.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[1].classType">
+					
+					{{bookflight1.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[2].classType">
+					{{bookflight1.class[2].price}}
+				</div><br>
+			
+
+			
+			  </mat-card><br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight2.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight2.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight2.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight2.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[0].classType">
+						{{bookflight2.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[1].classType">
+						
+						{{bookflight2.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[2].classType">
+						{{bookflight2.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight3.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight3.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight3.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight3.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[0].classType">
+						{{bookflight3.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[1].classType">
+						
+						{{bookflight3.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[2].classType">
+						{{bookflight3.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+			</mat-card><br><br>
+			</div>
+			</div>
+		</div>
+	
+		
+	<div class="col-sm-4">
+		<div  *ngFor="let book of books">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div  *ngFor="let book of books1">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div  *ngFor="let book of books2">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	
+</div>
+
+<div *ngIf="num==3">
+	
+		<div *ngFor="let bookflight1 of books">
+			<div *ngFor="let bookflight2 of books1">
+			<div *ngFor="let bookflight3 of books2">
+			<div *ngFor="let bookflight4 of books3">
+			  <mat-card>
+			  <mat-card>
+			  	<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Red Airways'">
+						<img src="assets/img/red1.png" class="im">
+					</div>
+					<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Green Airways'">
+						<img src="assets/img/green.png" class="im">
+					</div>
+					<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Blue Airways'">
+						<img src="assets/img/blue.png" class="im">
+					</div>
+				<div class="col-sm-2">
+					
+					
+					{{bookflight1.flightName}}
+				</div>
+				<div class="col-sm-2">
+				{{bookflight1.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{bookflight1.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{bookflight1.duration}}
+			</div >	
+			
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[0].classType">
+					{{bookflight1.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[1].classType">
+					
+					{{bookflight1.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[2].classType">
+					{{bookflight1.class[2].price}}
+				</div><br>
+			
+
+			
+			  </mat-card><br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight2.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight2.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight2.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight2.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[0].classType">
+						{{bookflight2.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[1].classType">
+						
+						{{bookflight2.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[2].classType">
+						{{bookflight2.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight3.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight3.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight3.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight3.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[0].classType">
+						{{bookflight3.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[1].classType">
+						
+						{{bookflight3.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[2].classType">
+						{{bookflight3.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight4.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight4.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight4.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight4.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight4.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight4.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight4.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight4.class[0].classType">
+						{{bookflight4.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight4.class[1].classType">
+						
+						{{bookflight4.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight4.class[2].classType">
+						{{bookflight4.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+			</mat-card><br><br>
+			</div>
+			</div>
+			</div>
+		</div>
+	
+		
+	<div class="col-sm-3">
+		<div  *ngFor="let book of books">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-3">
+		<div  *ngFor="let book of books1">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-3">
+		<div  *ngFor="let book of books2">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-3">
+		<div  *ngFor="let book of books3">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	
+</div>
+
+
+<div *ngIf="num==4">
+	
+		<div *ngFor="let bookflight1 of books">
+			<div *ngFor="let bookflight2 of books1">
+			<div *ngFor="let bookflight3 of books2">
+			<div *ngFor="let bookflight4 of books3">
+			<div *ngFor="let bookflight5 of books4">
+			  <mat-card>
+			  <mat-card>
+			  	<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Red Airways'">
+						<img src="assets/img/red1.png" class="im">
+					</div>
+					<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Green Airways'">
+						<img src="assets/img/green.png" class="im">
+					</div>
+					<div class="col-sm-2" *ngIf="bookflight1.carrierName==='Blue Airways'">
+						<img src="assets/img/blue.png" class="im">
+					</div>
+				<div class="col-sm-2">
+					
+					
+					{{bookflight1.flightName}}
+				</div>
+				<div class="col-sm-2">
+				{{bookflight1.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{bookflight1.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{bookflight1.duration}}
+			</div >	
+			
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[0].classType">
+					{{bookflight1.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[1].classType">
+					
+					{{bookflight1.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===bookflight1.class[2].classType">
+					{{bookflight1.class[2].price}}
+				</div><br>
+			
+
+			
+			  </mat-card><br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight2.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight2.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight2.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight2.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight2.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[0].classType">
+						{{bookflight2.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[1].classType">
+						
+						{{bookflight2.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight2.class[2].classType">
+						{{bookflight2.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight3.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight3.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight3.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight3.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight3.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[0].classType">
+						{{bookflight3.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[1].classType">
+						
+						{{bookflight3.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight3.class[2].classType">
+						{{bookflight3.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight4.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight4.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight4.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight4.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight4.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight4.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight4.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight4.class[0].classType">
+						{{bookflight4.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight4.class[1].classType">
+						
+						{{bookflight4.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight4.class[2].classType">
+						{{bookflight4.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <br>
+			  <mat-card>
+				
+				<div class="col-sm-2" *ngIf="bookflight5.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight5.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</div>
+				<div class="col-sm-2" *ngIf="bookflight5.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</div>
+				<div class="col-sm-2">	
+					{{bookflight5.flightName}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight5.departureTime}}
+				</div>
+				<div class="col-sm-2">
+					{{bookflight5.arrivalTime}}
+				</div >
+				<div class="col-sm-2">
+					{{bookflight5.duration}}
+				</div >	
+				
+					<div class="col-sm-2" *ngIf="className===bookflight5.class[0].classType">
+						{{bookflight5.class[0].price}}
+					</div>	
+
+					<div class="col-sm-2" *ngIf="className===bookflight5.class[1].classType">
+						
+						{{bookflight5.class[1].price}}
+					</div>
+					
+					<div class="col-sm-2" *ngIf="className===bookflight5.class[2].classType">
+						{{bookflight5.class[2].price}}
+					</div><br>
+			  </mat-card>
+			  <div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+			</mat-card><br><br>
+			</div>
+			</div>
+			</div>
+			</div>
+		</div>
+	
+		
+	<div class="col-sm-2">
+		<div  *ngFor="let book of books">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<div  *ngFor="let book of books1">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<div  *ngFor="let book of books2">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<div  *ngFor="let book of books3">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<div  *ngFor="let book of books4">
+			{{book.carrierName}}
+			{{book.flightName}}
+		</div>
+	</div>
+	
+</div>
+
+</div>
+
+
+
+<!-- 
+	<div class="col-sm-2">
+		<div>hi{{check}}</div> -->
+	
+	<!-- 	<div *ngIf="books.length > 0">
+			<mat-card >
+			<div class="col-sm-2">
+				FlightName
+			</div>
+			<div class="col-sm-2">
+				Departure
+			</div>
+			<div class="col-sm-2">
+				Arrival
+			</div >
+			<div class="col-sm-2">
+				Duration
+			</div >	
+			
+			<div class="col-sm-2" >
+				Price
+			</div>	
+			<br>
+		</mat-card>
+		<mat-card *ngFor="let book of books">
+		<mat-card >
+			<div class="col-sm-2">
+				<span *ngIf="book.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</span>
+				
+				{{book.flightName}}
+			</div>
+			<div class="col-sm-2">
+				{{book.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{book.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{book.duration}}
+			</div >	
+			
+				<div class="col-sm-2" *ngIf="className===book.class[0].classType">
+					{{book.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===book.class[1].classType">
+					
+					{{book.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===book.class[2].classType">
+					{{book.class[2].price}}
+				</div>
+			
+
+			<div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+		</mat-card>
+		<mat-accordion>
+		  
+		  <mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        <div class="FlightRight" >Flight Details</div>
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+			    <mat-tab-group>
+				  <mat-tab label="Flight Details">
+				  <br> 
+				  	<div>
+				  		<div class="col-sm-2">
+							<span *ngIf="book.carrierName==='Red Airways'">
+								<img src="assets/img/red1.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Green Airways'">
+								<img src="assets/img/green.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Blue Airways'">
+								<img src="assets/img/blue.png" class="im">
+							</span>
+							{{book.flightName}}
+						</div>
+						<div class="col-sm-2">
+							{{book.departureTime}}
+						</div>
+						<div class="col-sm-2">
+							{{book.arrivalTime}}
+						</div >
+						<div class="col-sm-2">
+							{{book.duration}}
+						</div >	
+						<div class="nonRefund">Non Refundable</div>
+					</div>
+				  </mat-tab>
+				  <mat-tab label="Fare Details">
+				  	<div>
+				  		<br>
+				  		<table>
+								  <thead>
+								    <tr>
+								      <th>Fare breakup</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Base Fare </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price}}
+										</span>
+									</td>
+								    </tr>
+								    <tr >
+								      <td>Fees & Surcharge </td>
+								      <td> &#8377;425</td>
+								    </tr>
+								    <tr >
+								      <td>Total </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price+425}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price+425}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price+425}}
+										</span>
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+				  		
+				  		
+				  	</div>
+				  	  
+				  </mat-tab>
+				  <mat-tab label="Baggage Details"> 
+				  			<span  *ngIf="className===book.class[0].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>	
+
+							<span  *ngIf="className===book.class[1].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].adult}}Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+							
+							<span  *ngIf="className===book.class[2].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Checkin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+				  	
+				  </mat-tab>
+				</mat-tab-group>
+		  </mat-expansion-panel>
+		</mat-accordion>
+	</mat-card>
+	</div>
+	</div>
+
+
+
+
+
+	<div class="col-sm-2">
+		<div *ngIf="books1.length > 0">
+			<mat-card >
+			<div class="col-sm-2">
+				FlightName
+			</div>
+			<div class="col-sm-2">
+				Departure
+			</div>
+			<div class="col-sm-2">
+				Arrival
+			</div >	
+			<div class="col-sm-2">
+				Duration
+			</div >	
+			<div class="col-sm-2" >
+				Price
+			</div>	
+			<br>
+		</mat-card>
+		<mat-card *ngFor="let book of books1">
+		<mat-card >
+			<div class="col-sm-2">
+				<span *ngIf="book.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</span>
+				
+				{{book.flightName}}
+			</div>
+			<div class="col-sm-2">
+				{{book.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{book.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{book.duration}}
+			</div >
+			
+				<div class="col-sm-2" *ngIf="className===book.class[0].classType">
+					{{book.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===book.class[1].classType">
+					
+					{{book.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===book.class[2].classType">
+					{{book.class[2].price}}
+				</div>
+			
+
+			<div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+		</mat-card>
+		<mat-accordion>
+		  
+		  <mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        <div class="FlightRight" >Flight Details</div>
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+			    <mat-tab-group>
+				  <mat-tab label="Flight Details">
+				  <br> 
+				  	<div>
+				  		<div class="col-sm-2">
+							<span *ngIf="book.carrierName==='Red Airways'">
+								<img src="assets/img/red1.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Green Airways'">
+								<img src="assets/img/green.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Blue Airways'">
+								<img src="assets/img/blue.png" class="im">
+							</span>
+							{{book.flightName}}
+						</div>
+						<div class="col-sm-2">
+							{{book.departureTime}}
+						</div>
+						<div class="col-sm-2">
+							{{book.arrivalTime}}
+						</div >
+						<div class="col-sm-2">
+							{{book.duration}}
+						</div >	
+						<div class="nonRefund">Non Refundable</div>
+					</div>
+				  </mat-tab>
+				  <mat-tab label="Fare Details">
+				  	<div>
+				  		<br>
+				  		<table>
+								  <thead>
+								    <tr>
+								      <th>Fare breakup</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Base Fare </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price}}
+										</span>
+									</td>
+								    </tr>
+								    <tr >
+								      <td>Fees & Surcharge </td>
+								      <td> &#8377;425</td>
+								    </tr>
+								    <tr >
+								      <td>Total </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price+425}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price+425}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price+425}}
+										</span>
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+				  		
+				  		
+				  	</div>
+				  	  
+				  </mat-tab>
+				  <mat-tab label="Baggage Details"> 
+				  			<span  *ngIf="className===book.class[0].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>	
+
+							<span  *ngIf="className===book.class[1].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].adult}}Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+							
+							<span  *ngIf="className===book.class[2].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Checkin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+				  	
+				  </mat-tab>
+				</mat-tab-group>
+		  </mat-expansion-panel>
+		</mat-accordion>
+	</mat-card>
+	</div>
+	</div>
+	  
+
+
+
+	<div class="col-sm-2">
+		<div *ngIf="books1.length > 0">
+			<mat-card >
+			<div class="col-sm-2">
+				FlightName
+			</div>
+			<div class="col-sm-2">
+				Departure
+			</div>
+			<div class="col-sm-2">
+				Arrival
+			</div >	
+			<div class="col-sm-2">
+				Duration
+			</div >	
+			<div class="col-sm-2" >
+				Price
+			</div>	
+			<br>
+		</mat-card>
+		<mat-card *ngFor="let book of books2">
+		<mat-card >
+			<div class="col-sm-2">
+				<span *ngIf="book.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</span>
+				
+				{{book.flightName}}
+			</div>
+			<div class="col-sm-2">
+				{{book.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{book.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{book.duration}}
+			</div >
+			
+				<div class="col-sm-2" *ngIf="className===book.class[0].classType">
+					{{book.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===book.class[1].classType">
+					
+					{{book.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===book.class[2].classType">
+					{{book.class[2].price}}
+				</div>
+			
+
+			<div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+		</mat-card>
+		<mat-accordion>
+		  
+		  <mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        <div class="FlightRight" >Flight Details</div>
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+			    <mat-tab-group>
+				  <mat-tab label="Flight Details">
+				  <br> 
+				  	<div>
+				  		<div class="col-sm-2">
+							<span *ngIf="book.carrierName==='Red Airways'">
+								<img src="assets/img/red1.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Green Airways'">
+								<img src="assets/img/green.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Blue Airways'">
+								<img src="assets/img/blue.png" class="im">
+							</span>
+							{{book.flightName}}
+						</div>
+						<div class="col-sm-2">
+							{{book.departureTime}}
+						</div>
+						<div class="col-sm-2">
+							{{book.arrivalTime}}
+						</div >
+						<div class="col-sm-2">
+							{{book.duration}}
+						</div >	
+						<div class="nonRefund">Non Refundable</div>
+					</div>
+				  </mat-tab>
+				  <mat-tab label="Fare Details">
+				  	<div>
+				  		<br>
+				  		<table>
+								  <thead>
+								    <tr>
+								      <th>Fare breakup</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Base Fare </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price}}
+										</span>
+									</td>
+								    </tr>
+								    <tr >
+								      <td>Fees & Surcharge </td>
+								      <td> &#8377;425</td>
+								    </tr>
+								    <tr >
+								      <td>Total </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price+425}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price+425}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price+425}}
+										</span>
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+				  		
+				  		
+				  	</div>
+				  	  
+				  </mat-tab>
+				  <mat-tab label="Baggage Details"> 
+				  			<span  *ngIf="className===book.class[0].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>	
+
+							<span  *ngIf="className===book.class[1].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].adult}}Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+							
+							<span  *ngIf="className===book.class[2].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Checkin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+				  	
+				  </mat-tab>
+				</mat-tab-group>
+		  </mat-expansion-panel>
+		</mat-accordion>
+	</mat-card>
+	</div>
+	</div>
+
+
+		<div class="col-sm-2">
+		<div *ngIf="books1.length > 0">
+			<mat-card >
+			<div class="col-sm-2">
+				FlightName
+			</div>
+			<div class="col-sm-2">
+				Departure
+			</div>
+			<div class="col-sm-2">
+				Arrival
+			</div >	
+			<div class="col-sm-2">
+				Duration
+			</div >	
+			<div class="col-sm-2" >
+				Price
+			</div>	
+			<br>
+		</mat-card>
+		<mat-card *ngFor="let book of books3">
+		<mat-card >
+			<div class="col-sm-2">
+				<span *ngIf="book.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</span>
+				
+				{{book.flightName}}
+			</div>
+			<div class="col-sm-2">
+				{{book.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{book.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{book.duration}}
+			</div >
+			
+				<div class="col-sm-2" *ngIf="className===book.class[0].classType">
+					{{book.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===book.class[1].classType">
+					
+					{{book.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===book.class[2].classType">
+					{{book.class[2].price}}
+				</div>
+			
+
+			<div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+		</mat-card>
+		<mat-accordion>
+		  
+		  <mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        <div class="FlightRight" >Flight Details</div>
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+			    <mat-tab-group>
+				  <mat-tab label="Flight Details">
+				  <br> 
+				  	<div>
+				  		<div class="col-sm-2">
+							<span *ngIf="book.carrierName==='Red Airways'">
+								<img src="assets/img/red1.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Green Airways'">
+								<img src="assets/img/green.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Blue Airways'">
+								<img src="assets/img/blue.png" class="im">
+							</span>
+							{{book.flightName}}
+						</div>
+						<div class="col-sm-2">
+							{{book.departureTime}}
+						</div>
+						<div class="col-sm-2">
+							{{book.arrivalTime}}
+						</div >
+						<div class="col-sm-2">
+							{{book.duration}}
+						</div >	
+						<div class="nonRefund">Non Refundable</div>
+					</div>
+				  </mat-tab>
+				  <mat-tab label="Fare Details">
+				  	<div>
+				  		<br>
+				  		<table>
+								  <thead>
+								    <tr>
+								      <th>Fare breakup</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Base Fare </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price}}
+										</span>
+									</td>
+								    </tr>
+								    <tr >
+								      <td>Fees & Surcharge </td>
+								      <td> &#8377;425</td>
+								    </tr>
+								    <tr >
+								      <td>Total </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price+425}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price+425}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price+425}}
+										</span>
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+				  		
+				  		
+				  	</div>
+				  	  
+				  </mat-tab>
+				  <mat-tab label="Baggage Details"> 
+				  			<span  *ngIf="className===book.class[0].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>	
+
+							<span  *ngIf="className===book.class[1].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].adult}}Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+							
+							<span  *ngIf="className===book.class[2].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Checkin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+				  	
+				  </mat-tab>
+				</mat-tab-group>
+		  </mat-expansion-panel>
+		</mat-accordion>
+	</mat-card>
+	</div>
+	</div>
+
+
+
+	<div class="col-sm-2">
+		<div *ngIf="books1.length > 0">
+			<mat-card >
+			<div class="col-sm-2">
+				FlightName
+			</div>
+			<div class="col-sm-2">
+				Departure
+			</div>
+			<div class="col-sm-2">
+				Arrival
+			</div >	
+			<div class="col-sm-2">
+				Duration
+			</div >	
+			<div class="col-sm-2" >
+				Price
+			</div>	
+			<br>
+		</mat-card>
+		<mat-card *ngFor="let book of books4">
+		<mat-card >
+			<div class="col-sm-2">
+				<span *ngIf="book.carrierName==='Red Airways'">
+					<img src="assets/img/red1.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Green Airways'">
+					<img src="assets/img/green.png" class="im">
+				</span>
+				<span *ngIf="book.carrierName==='Blue Airways'">
+					<img src="assets/img/blue.png" class="im">
+				</span>
+				
+				{{book.flightName}}
+			</div>
+			<div class="col-sm-2">
+				{{book.departureTime}}
+			</div>
+			<div class="col-sm-2">
+				{{book.arrivalTime}}
+			</div >
+			<div class="col-sm-2">
+				{{book.duration}}
+			</div >
+			
+				<div class="col-sm-2" *ngIf="className===book.class[0].classType">
+					{{book.class[0].price}}
+				</div>	
+
+				<div class="col-sm-2" *ngIf="className===book.class[1].classType">
+					
+					{{book.class[1].price}}
+				</div>
+				
+				<div class="col-sm-2" *ngIf="className===book.class[2].classType">
+					{{book.class[2].price}}
+				</div>
+			
+
+			<div >
+				 <button mat-raised-button color="warn" routerLink="/flight/flightDetails/booking" type="button" id="bt">Book</button>
+			</div><br>
+		</mat-card>
+		<mat-accordion>
+		  
+		  <mat-expansion-panel>
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        <div class="FlightRight" >Flight Details</div>
+		      </mat-panel-title>
+		    </mat-expansion-panel-header>
+			    <mat-tab-group>
+				  <mat-tab label="Flight Details">
+				  <br> 
+				  	<div>
+				  		<div class="col-sm-2">
+							<span *ngIf="book.carrierName==='Red Airways'">
+								<img src="assets/img/red1.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Green Airways'">
+								<img src="assets/img/green.png" class="im">
+							</span>
+							<span *ngIf="book.carrierName==='Blue Airways'">
+								<img src="assets/img/blue.png" class="im">
+							</span>
+							{{book.flightName}}
+						</div>
+						<div class="col-sm-2">
+							{{book.departureTime}}
+						</div>
+						<div class="col-sm-2">
+							{{book.arrivalTime}}
+						</div >
+						<div class="col-sm-2">
+							{{book.duration}}
+						</div >	
+						<div class="nonRefund">Non Refundable</div>
+					</div>
+				  </mat-tab>
+				  <mat-tab label="Fare Details">
+				  	<div>
+				  		<br>
+				  		<table>
+								  <thead>
+								    <tr>
+								      <th>Fare breakup</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Base Fare </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price}}
+										</span>
+									</td>
+								    </tr>
+								    <tr >
+								      <td>Fees & Surcharge </td>
+								      <td> &#8377;425</td>
+								    </tr>
+								    <tr >
+								      <td>Total </td>
+								      <td>
+								      	<span  *ngIf="className===book.class[0].classType">
+											 &#8377;{{book.class[0].price+425}}
+										</span>	
+
+										<span  *ngIf="className===book.class[1].classType">
+											 &#8377;
+											{{book.class[1].price+425}}
+										</span>
+										
+										<span  *ngIf="className===book.class[2].classType">
+											 &#8377;{{book.class[2].price+425}}
+										</span>
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+				  		
+				  		
+				  	</div>
+				  	  
+				  </mat-tab>
+				  <mat-tab label="Baggage Details"> 
+				  			<span  *ngIf="className===book.class[0].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[0].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>	
+
+							<span  *ngIf="className===book.class[1].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Ccheckin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].adult}}Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[1].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+							
+							<span  *ngIf="className===book.class[2].classType">
+								<table>
+								  <thead>
+								    <tr>
+								      <th>Person</th>
+								      <th>Cabin</th>
+								      <th>Checkin</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr >
+								      <td>Adult </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].adult}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Child </td>
+								      <td>7 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].child}} Kgs</td>
+								    </tr>
+								    <tr >
+								      <td>Infants </td>
+								      <td>0 Kgs </td>
+								      <td>{{book.class[2].baggageDetails[0].infant}} Kgs</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</span>
+				  	
+				  </mat-tab>
+				</mat-tab-group>
+		  </mat-expansion-panel>
+		</mat-accordion>
+	</mat-card>
+	</div>
+	</div> -->
+<!-- </div> -->

@@ -1,0 +1,10 @@
+#back{
+ 	background-image: url('./img/Background1.jpg');
+ 	background-size: cover;
+ 	background-position: center center;
+ 	position: relative;
+ 	top: 0;
+ 	bottom: 0;
+ 	height: 100vh;
+ 	z-index: -10;
+ }

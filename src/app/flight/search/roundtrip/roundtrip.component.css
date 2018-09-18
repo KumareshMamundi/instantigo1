@@ -1,0 +1,30 @@
+#bt{
+	float: right;
+}
+.FlightRight{
+	float: right;
+	color: blue;
+}
+ .im{
+      width: 30%;
+      height: 30%;
+}
+
+.nonRefund{
+	color: green;
+}
+
+.scroll{
+  height: 500px;
+  overflow: scroll;
+}
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}

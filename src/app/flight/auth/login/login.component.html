@@ -1,0 +1,31 @@
+
+<div class="container">
+	<mat-card>  
+	  <form (submit)="allowUser(datas)" #datas="ngForm">
+	  	<br>
+	  	<div>
+	  		<mat-form-field>
+		      <input matInput type="email"  placeholder="Email"  name="email" ngModel required >   
+		      <mat-error *ngIf="email.invalid">Please enter valid email</mat-error>
+		    </mat-form-field>
+		    &nbsp;&nbsp;
+	    	<mat-form-field>
+		      <input matInput type="password"  placeholder="Password" name="password" ngModel required >
+		      <mat-error *ngIf="pass.invalid">Please enter valid password</mat-error>
+		    </mat-form-field>
+		    
+
+	    </div>	 
+	    <div><br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	<a href="/forget">Forgot password</a>
+	    	&nbsp;&nbsp;&nbsp;
+		    <button mat-raised-button color="accent" type="submit" >Login</button>	
+		    
+	    </div>
+	    
+	  </form>
+	</mat-card>
+	<!-- <div>email:{{email}}pass:{{pass}}</div> -->
+
+</div>

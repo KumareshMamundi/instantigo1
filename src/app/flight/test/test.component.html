@@ -1,0 +1,18 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{ book._id }}</td>
+      <td>{{ book.flightName }}</td>
+      
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="check==='hikjg'">hello</div>

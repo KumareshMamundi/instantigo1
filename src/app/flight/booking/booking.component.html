@@ -1,0 +1,134 @@
+
+<!-- <button mat-raised-button (click)="isEditable = !isEditable">
+  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+</button> -->
+<div class="container">
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup" >
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Contact information</ng-template>
+      <i class="material-icons">
+        contact_mail
+        </i>&nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput type="email" placeholder="Email" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" >
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Travellers</ng-template>
+      <div >
+         <div class="aci" ><b> Adult</b>  
+         <div >     
+          <mat-form-field>                
+            <div>
+              <input matInput placeholder="First Name" formControlName="secondCtrl" required>      
+            </div>        
+          </mat-form-field>
+          <mat-form-field>                
+            <div>
+              <input matInput placeholder="Last Name" formControlName="secondCtrl" required>       
+            </div>   
+          </mat-form-field><br>
+          <div>
+            <mat-radio-group>
+              <mat-radio-button value="1">MALE</mat-radio-button>&nbsp;&nbsp;&nbsp;
+              <mat-radio-button value="2">FEMALE</mat-radio-button>
+            </mat-radio-group>
+          </div> 
+         </div> 
+         </div> <br>
+         <div class="aci" ><b> Child</b>   
+         <div >     
+          <mat-form-field>                
+            <div>
+              <input matInput placeholder="First Name" formControlName="secondCtrl" required>      
+            </div>        
+          </mat-form-field>
+          <mat-form-field>                
+            <div>
+              <input matInput placeholder="Last Name" formControlName="secondCtrl" required>       
+            </div>   
+          </mat-form-field><br>
+          
+          <div>
+            <mat-radio-group>
+              <mat-radio-button value="1">MALE</mat-radio-button>&nbsp;&nbsp;&nbsp;
+              <mat-radio-button value="2">FEMALE</mat-radio-button>
+            </mat-radio-group>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field>
+                <input matInput placeholder="Age" formControlName="secondCtrl" required>
+            </mat-form-field>
+          </div> 
+        
+         </div> 
+         </div><br>
+         <div class="aci" ><b> Child</b>  
+         <div >     
+          <mat-form-field>                
+            <div>
+              <input matInput placeholder="First Name" formControlName="secondCtrl" required>      
+            </div>        
+          </mat-form-field>
+          <mat-form-field>                
+            <div>
+              <input matInput placeholder="Last Name" formControlName="secondCtrl" required>       
+            </div>   
+          </mat-form-field><br>
+          
+          <div>
+            <mat-radio-group>
+              <mat-radio-button value="1">MALE</mat-radio-button>&nbsp;&nbsp;&nbsp;
+              <mat-radio-button value="2">FEMALE</mat-radio-button>
+            </mat-radio-group>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field>
+                <input matInput placeholder="Age" formControlName="secondCtrl" required>
+            </mat-form-field>
+          </div> 
+        
+         </div>
+      </div> 
+      </div> <br>
+      
+      <div class="aci" > <br>
+          <i class="material-icons">
+          contact_phone
+          </i>
+          &nbsp;&nbsp;
+          Contact Details
+        &nbsp;&nbsp;&nbsp;
+        <mat-form-field>
+          
+           <input matInput placeholder="Mobile Number" formControlName="secondCtrl" required>
+        </mat-form-field>
+      </div>
+      <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+      </div>
+     
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Payment</ng-template>
+      <mat-form-field>
+        <mat-select placeholder="Payment">
+          <mat-option *ngFor="let pay of payment" [value]="pay.value">
+            {{pay.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="accent" (click)="alt()">click</button> <br>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+</div>

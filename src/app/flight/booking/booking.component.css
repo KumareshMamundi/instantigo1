@@ -1,0 +1,15 @@
+
+.aci{
+	color: orange;
+	 border: 1px solid grey;
+    padding: 25px 50px;
+}
+mat-radio-button{
+	font-style: all;
+	font-size: 12px;
+	color: grey;
+}
+input{
+	color: black;
+}
+
